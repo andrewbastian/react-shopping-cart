@@ -9,7 +9,7 @@ import ShoppingCart from './components/ShoppingCart';
 
 
 import { ProductContext } from './contexts/ProductContext';
-//import { CartContext } from './contexts/CartContext'
+import { CartContext } from './contexts/CartContext'
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
 
 	return (
 		<ProductContext.Provider value={{ products, addItem }}>
-
+			<CartContext.Provider value={{ cart, addItem }}>
 		<div className="App">
 			<Navigation cart={cart} />
 
@@ -39,6 +39,7 @@ function App() {
 				component={ShoppingCart}
 			/>
 		</div>
+		</CartContext.Provider>
 	</ProductContext.Provider>
 	);
 }
